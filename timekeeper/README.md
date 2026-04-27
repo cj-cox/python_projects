@@ -14,6 +14,7 @@ I then utilized AI to assist with incorporating the Python script I created for 
 The Dashboard button was then added to the interface. At this time, I then edited the resulting HTML file to acheive a more visualy appealing view of the Dashboard.  
 
 ## Screenshots
+
 ### TimeKeeper Windows Screenshot
 <img src="https://github.com/cj-cox/python_projects/blob/main/timekeeper/images/win_image_01.png" alt="TimeKeeper Windows Screenshot" width="900">
 
