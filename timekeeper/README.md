@@ -4,8 +4,19 @@ A cross-platform desktop time-budget tracker built with Python.
 Track break usage against a configurable budget, export session 
 logs to CSV, and view KPI analytics in a live web dashboard.
 
-## Screenshot
-![TimeKeeper screenshot](assets/screenshot.png)
+## Background
+
+I wanted to test the abilities of AI to aid in the development of a desktop application. 
+TimeKeeper is the result of that experiment. AI was crucial in the overall design of the UI and the necessary code to ensure its proper functionality. 
+After creating TimeKeeper, I performed basic data analysis on the resulting time information contained in the CSV logs. 
+During my analysis, I realized it would be beneficial for the user to have the ability to quickly review their usage history and trends. 
+I then utilized AI to assist with incorporating the Python script I created for analysis within TimeKeeper. 
+The Dashboard button was then added to the interface. At this time, I then edited the resulting HTML file to acheive a more visualy appealing view of the Dashboard.  
+
+## Screenshots
+![TimeKeeper Windows screenshot](images/win_image_01.png)
+![TimeKeeper macOS Screenshot](images/mac_image_01.png)
+![TimeKeeper Dashboard Screenshot](imapges/dash_image_01.png)
 
 ## Features
 - Start/stop session timer with a single button
@@ -18,8 +29,11 @@ logs to CSV, and view KPI analytics in a live web dashboard.
 - Cross-platform: Windows and macOS
 
 ## Requirements
-Python 3.8 or newer. Install dependencies with:
-    pip install -r requirements.txt
+Python 3.8 or newer
+Dependencies:
+* Flask
+* pandas
+* pyinstaller
 
 ## Running from source
     python time_tracker.py
@@ -31,7 +45,7 @@ Windows:
 macOS:
     pyinstaller TimeKeeper_mac.spec
 
-## Tech stack
+## Technology used
 - tkinter — GUI
 - Flask — dashboard web server
 - pandas — CSV analytics
