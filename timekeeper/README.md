@@ -15,8 +15,11 @@ The Dashboard button was then added to the interface. At this time, I then edite
 
 ## Screenshots
 ![TimeKeeper Windows screenshot](images/win_image_01.png)
+<img src="https://github.com/cj-cox/python_projects/blob/main/timekeeper/images/win_image_01.png" alt="TimeKeeper Windows Screenshot" width="400">
 ![TimeKeeper macOS Screenshot](images/mac_image_01.png)
+<img src="https://github.com/cj-cox/python_projects/blob/main/timekeeper/images/win_image_01.png" alt="TimeKeeper macOS Screenshot" width="400">
 ![TimeKeeper Dashboard Screenshot](imapges/dash_image_01.png)
+<img src="https://github.com/cj-cox/python_projects/blob/main/timekeeper/images/dash_image_01.png" alt="TimeKeeper Dashboard Screenshot" width="400">
 
 ## Features
 - Start/stop session timer with a single button
