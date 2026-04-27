@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                background-color: #353940;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                padding: 20px;
+            }
+
+            .container {
+                width: max-content;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 30vh;
+            }
+
+            .dashboard-title {
+                text-align: center;
+                font-size: 5rem;
+                color: white;
+                margin-bottom: 30px;
+            }
+
+            .kpi-container {
+                background-color: #5F6672;
+                border-radius: 8px;
+                padding: 25px;
+                margin: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                width: 95%;
+            }
+
+            .kpi-container h3 {
+                text-align: center;
+                margin-bottom: 15px;
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: white;
+            }
+
+            .date-time {
+                text-align: center;
+                font-size: .75rem;
+                font-weight: light;
+                margin-bottom: 5px;
+                color: lightgrey;
+            }
+
+            .kpi-value {
+                text-align: center;
+                font-size: 1.4rem;
+                font-weight: bold;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Dashboard Title -->
+            <h1 class="dashboard-title">Break Usage</h1>
+        </div>
+        <div class="container">
+            <div class="row flex-wrap justify-content-center">
+                <!-- Average Break Usage per Day-->
+                <div class="col-md-3 mb-3">
+                    <div class="kpi-container">
+                        <h3>Daily Average</h3>
+                        <div class="kpi-value">{{ avg_cumulative }}</div>
+                    </div>
+                </div>
+
+                <!-- Average Break Length -->
+                <div class="col-md-3 mb-3">
+                    <div class="kpi-container">
+                        <h3>Average Length</h3>
+                        <div class="kpi-value">{{ avg_break }}</div>
+                    </div>
+                </div>
+
+                <!-- Longest Break -->
+                <div class="col-md-3 mb-3">
+                    <div class="kpi-container">
+                        <h3>Longest Break</h3>
+                        <div class="date-time">{{ longest_break_date }}</div>
+                        <div class="kpi-value">{{ longest_break }}</div>
+                    </div>
+                </div>
+
+                <!-- Shortest Break -->
+                <div class="col-md-3 mb-3">
+                    <div class="kpi-container">
+                        <h3>Shortest Break</h3>
+                        <div class="date-time">{{ shortest_break_date }}</div>
+                        <div class="kpi-value">{{ shortest_break }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Connect to the server-sent events stream.
+            // When TimeKeeper stops a session it sends a "reload" event
+            // and this listener refreshes the page to show updated KPIs.
+            (function () {
+                var es = new EventSource("/events");
+                es.onmessage = function (e) {
+                    if (e.data === "reload") {
+                        window.location.reload();
+                    }
+                };
+                es.onerror = function () {
+                    // Quietly close if Flask is no longer running
+                    es.close();
+                };
+            })();
+        </script>
+    </body>
+</html>
